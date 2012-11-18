@@ -1,7 +1,6 @@
 {% extends 'djangobb_forum/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
-
 {% block content %}
 <div class="box">
 <h2>New Reports</h2>
@@ -23,7 +22,7 @@
 </td><td>
 {{ report.reason }}
 </td><td>
-<a href="{{report.post.get_absolute_url}}"> {{ report.post }} </a>
+<a href="{{report.post.get_absolute_url}}"> {{ report.post.replace('\n', '<br />') }} </a>
 <br><br>
 Posted By:<a href="{% url profile_detail report.post.user.username %}"> {{ report.post.user }} </a>
 </td><td>
@@ -33,7 +32,6 @@ Posted By:<a href="{% url profile_detail report.post.user.username %}"> {{ repor
 </table>
 </form>
 </div>
-
 <br><br>
 <div class ="box">
 <h2>Recently Zapped Reports</h2>
@@ -55,7 +53,7 @@ Posted By:<a href="{% url profile_detail report.post.user.username %}"> {{ repor
 </td><td>
 {{ report.reason }}
 </td><td>
-<a href="{{report.post.get_absolute_url}}"> {{ report.post }} </a>
+<a href="{{report.post.get_absolute_url}}"> {{ report.post.replace('\n', '<br />') }} </a>
 <br><br>
 Posted By:<a href="{% url profile_detail report.post.user.username %}"> {{ report.post.user }} </a>
 </td><td>
@@ -68,6 +66,5 @@ Zapped By: {{ report.zapped_by }}
 </form>
 </div>
 {% endblock %}
-
 {% block controls %}
 {% endblock %}
