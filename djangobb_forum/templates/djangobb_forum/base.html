@@ -62,6 +62,7 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("div.postmsg").highlight("{{ highlight_word }}");
+				$('input[name="AddPostForm"]').click(function(){this.disabled = true});
 			});
 		</script>
 	{% endif %}
